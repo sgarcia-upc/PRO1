@@ -1,0 +1,24 @@
+Nombre de punts: 
+(1, 1)
+(2, 1)
+(2, 2)
+(3, 2)
+(4, 2)
+Opcio: -1
+Punt a afegir: (4, 3)
+Opcio: -4
+Cami actual: [ (1, 1) (2, 1) (2, 2) (3, 2) (4, 2) (4, 3) ]
+Opcio: -3
+[ (1, 1) (1, 2) (2, 2) (2, 3) (2, 4) (3, 4) ]
+Opcio: -2
+Posicio del punt a consultar [1-6]: 5
+(4, 2)
+Opcio: -2
+Posicio del punt a consultar [1-6]: 7
+Posicio no valida.
+Opcio: -1
+Punt a afegir: (5, 4)
+El cami no pot ser extes amb el punt (5, 4)
+Opcio: 3
+Opcio no valida.
+Opcio: -5

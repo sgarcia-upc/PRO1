@@ -1,0 +1,5 @@
+()[]() is correct
+[(]) is incorrect
+[]( is incorrect
+((()) is incorrect
+(([]()[()])) is correct
