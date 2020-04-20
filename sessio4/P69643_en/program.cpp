@@ -14,9 +14,13 @@ bool checkString(string s)
     for (int x=0; x < (int) s.size(); x++){
         for (int y=0; y < (int) s.size(); y++){
              if (x == '[')
+            {
+            cor = false;
+                cout << "e";
+            }
         }
-
-    } 
+    }
+    return cor;
 }
 
 
@@ -24,7 +28,7 @@ int main() {
     string s;
     stack <string> stringStack;
     while (cin>>s) {
-        stringStack.push(s); 
+        stringStack.push(s);
     }
 
 
@@ -41,6 +45,6 @@ int main() {
         cout << endl;
 
         stringStack.pop();
-    
+
     }
 }

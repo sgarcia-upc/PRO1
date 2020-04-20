@@ -65,5 +65,6 @@ int main () {
             queue_list[i].pop();
         }
     }
+    cout <<endl;
 }
 
