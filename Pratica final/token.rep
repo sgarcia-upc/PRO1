@@ -1,1 +1,19 @@
 // Cal definir els atributs i mètodes privats dins del fitxer .rep
+
+	string tipus, variable, operador;
+	int enter;
+	bool boolea;
+
+
+bool es_operador () const;
+//Pre: true
+//Post: retorna true en cas que el token sigui de tipus operador
+
+bool equals ( const token &t) const;
+//Pre: true
+//Post: Indica si el token del p.i. és igual al token TK
+
+void crear_desde_string (const string &s);
+// Pre: s = S
+// Post: Crea un token a partir del string S (descriu un operador o un operand)
+

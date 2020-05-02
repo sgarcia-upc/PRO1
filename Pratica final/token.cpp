@@ -49,28 +49,20 @@ void token::crear_desde_string (const string &s)
         int num,suma=0;
         unsigned int mul=1;
         //esto va a convertirnos una string a numero y lo vamos a guardar en el entero del token
-        if (s[0]=='-'){
-
-            int num,suma=0;
-            unsigned int mul=1;
-            //esto va a convertirnos una string a numero y lo vamos a guardar en el entero del token
-            int end = 0;
-            if (s[0]=='-') end = 1;
-
-            for (int i=s.size()-1; i>=end; i--){
-                if (i>=0){
-                    num = s[i]-'0';
-                    num=num*mul;
-                    suma=suma+num;
-                    mul=mul*10;
-                }
+        int end = 0;
+        if (s[0]=='-') end = 1;
+        for (int i=s.size()-1; i>=end; i--){
+            if (i>=0){
+                num = s[i]-'0';
+                num=num*mul;
+                suma=suma+num;
+                mul=mul*10;
             }
-            if (end == 1) suma = suma * -1;
-            enter = suma;
-            tipus = "enter";
         }
+        if (end == 1) suma = suma * -1;
+        enter = suma;
+        tipus = "enter";
     }
-
 }
 
 
