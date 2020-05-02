@@ -6,11 +6,9 @@
 
 using namespace std;
 
-//list<int> amplada_funcio(const arbreBin<int> &a){
-//
-//}
-
 void amplada (const arbreBin<int> &a, list<int> &l){
+//Pre: l ha de ser una llista buida
+//Post: Es recorrera el arbre binari a seguint el recurregut per amplada y el valor de cada node es ficara a la llista l
     if (not a.es_buit()){
 
         queue<arbreBin<int>> c;

@@ -6,6 +6,8 @@ using namespace std;
 
 
 bool checkSumaFills(arbreBin<int> &a){
+//Pre: true
+//Post: commprova si l'abreBinari d'enters anomenat a que per tot node el seu valor és igual a la suma dels valors dels nodes (arrels) del fill esquerre i del fill dret.
     bool error = false;
     if (not a.es_buit()){
         stack<arbreBin<int>> p;

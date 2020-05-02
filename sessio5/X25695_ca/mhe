@@ -1,0 +1,102 @@
+#include "arbreBin.hpp"
+#include <stack>
+#include <list>
+#include <iostream>
+using namespace std;
+
+void inordre(const arbreBin<int> &a, list<int> &f)
+/*Pre: l es una llista buida */
+/* Post: l conte el recorregut en inordre d el'arbre a */
+{
+		if( not a.es_buit()){
+			stack<arbreBin<int>> p;
+			p.push(a);
+			while(not p.empty()){
+				arbreBin<int> aux = p.top();
+				p.pop();
+				if(aux.fe().es_buit() and aux.fd().es_buit()){
+					f.insert(f.end(), aux.arrel());
+				}
+				else{
+					if(aux.fe().es_buit() and not aux.fd().es_buit()){
+						f.insert(f.end(), aux.arrel());
+						p.push(aux.fd());
+					}
+					else{
+						if(not aux.fe().es_buit() and aux.fd().es_buit()){	
+							p.push(arbreBin<int>(aux.arrel(),arbreBin<int>(),arbreBin<int>()));
+							p.push(aux.fe());
+							
+						}
+						else{
+							if(not aux.fe().es_buit() and not aux.fd().es_buit()){
+								p.push(aux.fd());
+								p.push(arbreBin<int>(aux.arrel(),arbreBin<int>(),arbreBin<int>()));
+								p.push(aux.fe());
+							}
+						}
+						
+						
+					}
+				}
+			}
+
+		}
+		
+		
+		
+}
+		
+bool ordenada(const list<int> &f)
+/*Pre: cert */
+/*Post: El resultat indica si la llista f est ordenada de forma creixent */
+{
+	bool ord = true;
+	list<int>::const_iterator it = f.begin();
+	if(it != f.end()){
+		int ant = *it;
+		++it;
+		while(it != f.end() and ord){
+			if(ant >= *it) 
+				ord = false;
+			else {
+				ant= *it;
+				++it;
+			}
+		}
+	}
+	return ord;
+	  
+}
+
+
+bool es_bst(const arbreBin<int> &a)
+/*Pre: cert */
+/*Post: el resultat indica si es un arbre binari de cerca */
+{
+	bool b;
+	list<int> f;
+	inordre(a,f);
+	b = ordenada(f);
+	return b;
+
+}
+
+
+
+int main(){
+	
+	arbreBin<int> ar;
+	cin >> ar;
+	cout << ar;
+	if(es_bst(ar)){
+		cout << endl;
+		cout <<"L'arbre és un arbre binari de cerca." ;
+		cout << endl;
+	}
+	else{
+		cout << endl;
+		cout <<"L'arbre no és un arbre binari de cerca." ;
+		cout << endl;
+	}
+}
