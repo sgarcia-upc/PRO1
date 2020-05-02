@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: token
+      run: cd "Pratica final" && make test_token.exe && make test_token
+      
+    - name: expressio
+      run: cd "Pratica final" && test_expressio.exe && make test_expressio
+    
+    - name: calculadora
+      run: cd "Pratica final" && test_calculadora.exe && make test_calculadora
+
