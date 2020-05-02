@@ -15,10 +15,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: token
         run: cd Pratica\ final && make test_token.exe && make test_token
-      
-      - name: expressio
-        run: cd Pratica\ final && test_expressio.exe && make test_expressio
-    
-      - name: calculadora
-        run: cd Pratica\ final && test_calculadora.exe && make test_calculadora
 
