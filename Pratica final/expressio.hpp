@@ -10,6 +10,10 @@ using namespace std;
 
 class expressio {
   public: 
+  void show() const;
+/*Pre: true */
+/*Post: mostra per pantalla la nostra expressio */
+
   expressio(const token &t);
   // Pre: t = TK és un token operand
   // Post: Crea una expressió formada per operand TK

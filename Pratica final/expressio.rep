@@ -1,1 +1,21 @@
 // Cal definir els atributs i mètodes privats dins del fitxer .rep
+
+arbreBin<token>arbre;
+
+expressio converteix (const arbreBin<token> &p) const;
+/* Pre: p=P */
+/* Post: el resultat es un arbre identic al fill esquerre del p.i, però en comptes de ser de tokens és d'expressions */
+
+void get_operands (const arbreBin<token> &a, list <token> &llista) const;
+/* Pre: llista és una list buida  */
+/* Post: retorna una llista dels nodes de l'arbre que siguin operands (fulles) */
+
+
+void postfixa_recursiu (const arbreBin<token> &tree, string &s) const; 
+/* Pre: tree = TREE */
+/* Post: retorna una string amb els nodes de tree en postordre */
+
+
+void infixa_recursiu (const arbreBin<token> &tree, bool &parentesis, string &s) const;
+/* Pre: tree = TREE */
+/* Post: retorna una string amb els nodes de tree en inordre */

@@ -1,4 +1,7 @@
-OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
+#OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
+
+# Las CHACHIS
+OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -std=c++11
 
 test_calculadora.exe: test_calculadora.o calculadora.o expressio.o token.o
 	g++ -o test_calculadora.exe test_calculadora.o calculadora.o expressio.o token.o
