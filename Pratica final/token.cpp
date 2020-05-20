@@ -41,7 +41,7 @@ void token::crear_desde_string (const string &s)
     }else if (s=="T"){
         boolea = true;
         tipus = "boolea";
-    }else if (((s[0]>='A') and (s[0]<='Z')) or ((s[0]>='a') and (s[0]<='z'))){
+    }else if (((s[0]>='A') and (s[0]<='Z')) or ((s[0]>='a') and (s[0]<='z')) or s[0] == ')' or s[0] == '(' ){
         variable = s;
         tipus = "variable";
     }else{

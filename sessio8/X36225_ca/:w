@@ -1,0 +1,16 @@
+#include "cua_elimina.hpp"
+using namespace std;
+
+queue<Punt> elimina_punts(queue<Punt> c, Punt p)
+/* Pre: c = C i p = P */
+/* Post: retorna la cua C on s'han eliminat totes les aparicions del punt P */
+{
+    
+    queue<Punt> e;
+    if (not c.empty()){
+        cout << c.front();
+        c.pop();
+    }
+
+    return e;
+}

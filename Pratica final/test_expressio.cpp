@@ -8,7 +8,7 @@ int main() {
   string tipus;
   string sortida; 
   while (cin >> tipus) { // Llegir format d'entrada
-    if (tipus == "//") {
+    if (tipus == "//"){
       string s;
       getline(cin, s); // Llegir la resta del comentari
       cout << "//" << s << endl;

@@ -1,0 +1,12 @@
+pila 1: 1|2|5|4]
+pila 2: 3|2|7]
+pila concatenació: 1|2|5|4|3|2|7]
+
+pila 1: ]
+pila 2: 3|2|7]
+pila concatenació: 3|2|7]
+
+pila 1: 1|2|5|4]
+pila 2: ]
+pila concatenació: 1|2|5|4]
+

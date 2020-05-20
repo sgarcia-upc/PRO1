@@ -1,0 +1,33 @@
+void inordre(const arbreBin<int> &a, list<int> &f)
+/*Pre: l es una llista buida */
+/* Post: l conte el recorregut en inordre d el'arbre a */
+{
+    if( not a.es_buit()){
+	    stack<arbreBin<int>> p;
+		p.push(a);
+		while(not p.empty()){
+			arbreBin<int> aux = p.top();
+			p.pop();
+			if(aux.fe().es_buit() and aux.fd().es_buit()){
+				f.insert(f.end(), aux.arrel());
+			}
+			else{
+				if(aux.fe().es_buit() and not aux.fd().es_buit()){
+					f.insert(f.end(), aux.arrel());
+					p.push(aux.fd());
+				} else {
+					if (not aux.fe().es_buit() and aux.fd().es_buit()){	
+						p.push(arbreBin<int>(aux.arrel(), arbreBin<int>(), arbreBin<int>()));
+						p.push(aux.fe());
+					} else {
+						if(not aux.fe().es_buit() and not aux.fd().es_buit()){
+							p.push(aux.fd());
+							p.push(arbreBin<int>(aux.arrel(), arbreBin<int>(), arbreBin<int>()));
+							p.push(aux.fe());
+						}
+					}
+				}
+			}
+		}
+	}
+}

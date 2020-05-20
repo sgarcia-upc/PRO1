@@ -1,46 +1,28 @@
-#include <iostream>
+#include "arbreBin.hpp"
 #include <stack>
 #include <list>
-#include "arbreBin.hpp"
+#include <iostream>
+using namespace std; 
 
-using namespace std;
+//~ bool orden(unsigned int i, list<int> &c, int anterior)
+//~ /* Pre: i = 0; anterior = -999 (un número molt baix per començar la comparació) */
+//~ /* Post: retorna false en cas que la llista no sigui endressada */
+//~ {
+	//~ list<int>::iterator it=c.begin(); 
+	//~ if (c.size() > i ){
+        //~ if (anterior>*it) return false;
+        //~ else{
+            //~ anterior=*it; 
+            //~ c.erase (it);
+            //~ return orden(i,c,anterior);
+            //~ /* HI: retorna false en cas que la llista (ara reduida en un element) no sigui endressada */
+            //~ /* Fita: la mida de la llista */
+        //~ }
+    //~ }
+    //~ return true;
+//~ }
 
-
-void inordre(const arbreBin<int> &a, list<int> &l)
-// Pre: l es una llista buida
-// Post: l conte el recorregut en inisOrdenadare de l'arbre a
-{
-    if (not a.es_buit()){
-        stack<arbreBin<int>> p;
-        p.push(a);
-        while (not p.empty()){
-            arbreBin<int> aux = p.top();
-            p.pop();
-            if (aux.fd().es_buit() and aux.fe().es_buit()){
-                l.insert(l.end(), aux.arrel());
-            }
-            else{
-                if (aux.fe().es_buit() and not aux.fd().es_buit()){
-                    l.insert(l.end(), aux.arrel());
-                    p.push(aux.fd());
-                } else {
-                    if (not aux.fe().es_buit() and aux.fd().es_buit()){
-                        p.push(arbreBin<int>(aux.arrel(), arbreBin<int>(), arbreBin<int>()));
-                        p.push(aux.fe());
-                    } else {
-                        if(not aux.fe().es_buit() and not aux.fd().es_buit()){
-                            p.push(aux.fd());
-                            p.push(arbreBin<int>(aux.arrel(), arbreBin<int>(), arbreBin<int>()));
-                            p.push(aux.fe());
-                        }
-                    } 
-                }
-            }
-        }
-     }
-}
-
-bool isOrdenada(const list<int> &l){
+bool orden(const list<int> &l){
 // Pre: cert
 // Post El resultat indica si la llista l esta isOrdenadaenada de forma creixent
     bool isOrdenada = true;
@@ -57,16 +39,45 @@ bool isOrdenada(const list<int> &l){
     return isOrdenada;
 }
 
-int main(){
-    arbreBin<int> a;
-    cin >> a;
-    cout << a <<endl;
-    list <int> l;
-    inordre(a, l);
-    if (isOrdenada(l)){
-        cout << "L'arbre és un arbre binari de cerca.";
-    } else {
-        cout << "L'arbre no és un arbre binari de cerca.";
-    }
-    cout << endl;
+void busqueda_binaria (const arbreBin<int> &p, list<int> &llista)
+/* Pre: cert */
+/* Post: retorna un bool (error), serà cert si l'arbre no es un arbre binari de busueda i fals en cas que ho sigui */
+{
+	if (not p.es_buit()){
+		stack <arbreBin<int> > m; 
+		
+			m.push(p);
+			while (not m.empty()){ 
+				arbreBin<int> ar1=m.top();
+				m.pop();
+				if ( ar1.fe().es_buit() and ar1.fd().es_buit()){
+                    llista.insert(llista.end(),ar1.arrel());
+				} else if ( not ar1.fe().es_buit() and not ar1.fd().es_buit() ){
+					m.push(ar1.fd());
+					m.push(arbreBin <int> (ar1.arrel(),arbreBin<int>(),arbreBin<int>()));
+					m.push(ar1.fe());
+				} else if ( not ar1.fe().es_buit() and ar1.fd().es_buit() ){
+					m.push(arbreBin <int> (ar1.arrel(),arbreBin<int>(),arbreBin<int>()));
+					m.push(ar1.fe());	
+				}else if ( ar1.fe().es_buit() and not ar1.fd().es_buit() ){
+					llista.insert(llista.end(),ar1.arrel());
+					m.push(ar1.fd()); 
+				}
+				
+			}
+	}
+}
+
+
+
+int main() {
+	arbreBin<int> ar; 
+	cin >> ar;
+	//te meten el arbol
+	cout <<ar<< endl; 
+    list<int>l;
+    busqueda_binaria(ar,l);
+    
+	if (orden(l)==true) cout<<"L'arbre és un arbre binari de cerca."<<endl;
+	else cout<<"L'arbre no és un arbre binari de cerca."<<endl;
 }
