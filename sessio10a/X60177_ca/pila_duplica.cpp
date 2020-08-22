@@ -14,7 +14,6 @@ void Pila::duplica(){
         actual->seguent = copia;
         altura += 1;
         actual = copia->seguent;
-        
     }
 
 }

@@ -1,0 +1,12 @@
+// Cal definir els atributs i mètodes privats dins del fitxer .rep
+
+//vector és el contenidor de les 26 memories on es podran guardar expressions
+vector <expressio> mem;
+
+
+int transformar (const char &v)const;
+// Pre: True
+// Post: transforma el char v en un enter
+
+vector<token> memoria_utilitzada(const list<token> llista_operands) const;
+

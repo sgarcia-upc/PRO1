@@ -105,6 +105,8 @@ token::token(const char s[])
 // Pre: s = S
 // Post: Crea un token a partir del vector de caràcters S (descriu un operador o un operand)
 {
+    //cout << "DESDES CHAR"<<endl;
+    //cout << s;
     crear_desde_string((string)s);
 }
 
@@ -301,13 +303,13 @@ ostream& operator<<(ostream& os, const token &t)
 // Pre: t = TK
 // Post: S'ha escrit al canal os el contingut del token TK
 {
+    if (t.es_variable()) os << t.variable;
     if (t.es_enter()) os << t.enter;
     if (t.es_operador()) os << t.operador;
     if (t.es_boolea()){
         if (t.boolea) os << "T";
         else os << "F";
     }
-    if (t.es_variable()) os << t.variable;
     return os;
 }
 

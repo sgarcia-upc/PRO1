@@ -1,7 +1,9 @@
 // Cal definir els atributs i mètodes privats dins del fitxer .rep
+
+//és un arbre de tokens que representa una expressió aritmètica i/o booleana
 arbreBin<token>arbre;
 
-expressio converteix (const arbreBin<token> &p) const;
+void converteix (const arbreBin<token> &p, expressio &e) const;
 /* Pre: p=P */
 /* Post: el resultat es un arbre identic al fill esquerre del p.i, però en comptes de ser de tokens és d'expressions */
 
@@ -28,6 +30,10 @@ static int power(const int x, const int y);
 // Pre: cert 
 // Post: resultat x elevat a y 
 
-expressio expandeix_recursiu (const arbreBin<token> &tree, const token &t, const expressio &e) const;
+//expressio expandeix_recursiu (const arbreBin<token> &tree, const token &t, const expressio &e) const;
+/* Pre: t es un operand */
+/* Post: retorna una arbreBin<token> amb els token coincidents amb t els remplaça per e */
+
+arbreBin<token> expandeix_recursiu (const arbreBin<token> &tree, const token &t, const expressio &e) const;
 /* Pre: t es un operand */
 /* Post: retorna una arbreBin<token> amb els token coincidents amb t els remplaça per e */
